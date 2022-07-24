@@ -22,10 +22,12 @@ export default {
       },
       {
         test: /\.(css|scss)$/,
+        exclude: /node_modules/,
         use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+        exclude: /node_modules/,
         use: ["file-loader"],
       },
     ],
@@ -33,6 +35,7 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "client/src", "index.html"),
+      excludeChunks: ["server"],
     }),
   ],
 };
